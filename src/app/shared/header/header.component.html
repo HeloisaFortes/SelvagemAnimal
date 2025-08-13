@@ -1,0 +1,46 @@
+<mat-toolbar class="background">
+    <button 
+    mat-icon-button 
+    class="header-icon" 
+    aria-label="icon-button with menu icon" 
+    [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Selvagem Virtual</span>
+    <span class="header-spacer"></span>
+    <button mat-button color="blue" (click)="irParaPaginaInicial()"> Página Inicial </button>
+    <button 
+    mat-icon-button 
+    class="header-icon" 
+    aria-label=" icon-button with share icon"
+    #tooltip="matTooltip"
+    matTooltip="Acesse o GitHub"
+    matTooltipHideDelay="100000"
+    (click)="openGitHub()" >
+      <mat-icon>code</mat-icon>
+    </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item
+    class="menu-item"
+    (click)="irParaAnimais()"
+  >
+    <mat-icon>pets</mat-icon>
+    <span>Nossos Animais</span>
+  </button>
+  <button mat-menu-item 
+    class="menu-item"
+    (click)="irParaFavoritos()"
+  >
+    <mat-icon>favorite</mat-icon>
+    <span>Meus Animais Favoritos</span>
+  </button>
+  <button mat-menu-item 
+  class="menu-item"
+  (click)="irParaPedidos()">
+    <mat-icon>edit_note</mat-icon>
+    <span>Meus Pedidos de Adoção</span>
+  </button>
+</mat-menu>
+

@@ -1,0 +1,58 @@
+<h1>Adote Virtualmente um Animal Selvagem</h1>
+
+<div class="flex-container">
+    <div class="col-1">
+        <div>
+            <h3>Transforme sua curiosidade em cuidado</h3>
+            <p>Você sabia que pode ajudar na proteção de animais selvagens sem sair de casa? Com a adoção virtual, você escolhe um animal para acompanhar de perto e contribui diretamente para sua preservação.</p>
+        </div>
+        <div>
+            <h3>Como Funciona?</h3>
+            <p>Escolha seu animal favorito: Gato-selvagem, Girafa, macaco-japonês e até mesmo Panda! Cada espécie 
+                tem uma história única e um papel essencial na natureza.</p>
+        </div>
+        <div>
+            <h3>Receba conteúdos exclusivos</h3>
+            <p>Ao adotar, você recebe um kit digital com:</p>
+                <ul>
+                    <li>Certificado de adoção personalizado.</li>
+                    <li>Ficha informativa sobre o animal.</li>
+                    <li>Vídeos e fotos atualizadas.</li>
+                    <li>Curiosidades e alertas sobre ameaças à espécie.</li>
+                    <li>Apoie a conservação.</li>
+                    <li>Parte do valor da adoção é destinada a ONGs e projetos sérios que atuam na proteção da fauna brasileira.</li>
+                </ul>
+        </div>
+        <div>
+            <h3>Compartilhe sua causa</h3>
+            <p>Mostre seu apoio nas redes sociais com artes exclusivas e incentive mais pessoas a se conectarem com a natureza.</p>
+        </div>
+        <div>
+            <h3>Planos de Adoção Virtual</h3>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="plano">
+                  <th mat-header-cell *matHeaderCellDef> Plano</th>
+                  <td mat-cell *matCellDef="let element"> {{element.plano}} </td>
+                </ng-container>
+                <ng-container matColumnDef="valor">
+                  <th mat-header-cell *matHeaderCellDef> Valor </th>
+                  <td mat-cell *matCellDef="let element"> {{element.valor | currency:'BRL':'symbol':'1.2-2'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="beneficios">
+                  <th mat-header-cell *matHeaderCellDef> Benefícios </th>
+                  <td mat-cell *matCellDef="let element"> {{element.beneficios}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+        <div>
+            <h3>Por que adotar virtualmente?</h3>
+            <ul>
+                <li>Não envolve posse ou contato físico com o animal.</li>
+                <li>É uma forma ética e educativa de apoiar a biodiversidade.</li>
+                <li> Ideal para crianças, escolas, amantes da natureza e curiosos.</li>
+            </ul>
+        </div>
+    </div>
+    <img src="/assets/imagens/gato_porco_urso.png" class="imagem col-2" alt="Gato selvagem">

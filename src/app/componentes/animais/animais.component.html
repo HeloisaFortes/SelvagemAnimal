@@ -1,0 +1,53 @@
+<div class="row">
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Busque por um animal</mat-label>
+      <input type="text"
+             placeholder="Digite aqui..."
+             aria-label="Animal"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        @for (option of filteredOptions | async; track option) {
+          <mat-option [value]="option.nome">{{option.nome}}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="row">
+    <mat-card class="card" appearance="outlined" *ngFor="let animal of filteredOptions | async">
+        <mat-card-header>
+          <mat-card-title>{{animal.nome}}</mat-card-title>
+          <mat-card-subtitle>{{animal.nomeCientifico}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class="imagem" src="assets/imagens/{{animal.nomeImagem}}.png" alt="{{animal.nome}}" />
+        <mat-card-content>
+          <p>
+            {{animal.descricao}}
+          </p>
+          <span class="spacer"></span>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+            <button 
+            mat-icon-button
+            [ngClass]="{'favoritado': animal.favorito, 'nao-favoritado': !animal.favorito}"
+            >
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <span class="spacer"></span>
+            <button 
+            mat-icon-button
+            class="book"
+            >
+              <mat-icon>library_books</mat-icon>
+            </button>
+          <button mat-button>FAZER PEDIDO DE ADOÇÃO</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+
+
+  
